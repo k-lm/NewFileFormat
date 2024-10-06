@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5073EFE-B7AA-4530-B36D-F8356F1038A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NewFileFormat</RootNamespace>
+    <AssemblyName>NetFileFormat</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extend\DefaultFileType.cs" />
+    <Compile Include="Extend\FileFormat\Base\BaseFileFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\Base\BaseLocalFileFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\Base\DefaultFileFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\FileFullNameFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\FileNameFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\FolderFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\AudioFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\VideoFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\ImageFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\IniFormatItem.cs" />
+    <Compile Include="Extend\FileFormat\TxtFormatItem.cs" />
+    <Compile Include="FAnnotation\SerializedFile.cs" />
+    <Compile Include="FileFormat\FileFormatConvert.cs" />
+    <Compile Include="FileFormat\FormatBuild.cs" />
+    <Compile Include="FileFormat\ObjectSaveFormat.cs" />
+    <Compile Include="FileFormat\ObjectLoadFormat.cs" />
+    <Compile Include="FormatModel\Base\IFileFormatItem.cs" />
+    <Compile Include="FType\ObjectType.cs" />
+    <Compile Include="FileFormat\ObjetInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FType\FileContentType.cs" />
+    <Compile Include="Utils\ObjectTypeUtils.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
