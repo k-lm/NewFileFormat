@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 
 namespace NetFileFormat.Extend.FileFormat
@@ -83,6 +84,13 @@ namespace NetFileFormat.Extend.FileFormat
             mStringBuilder.Append(value);
         }
 
+        private void AddValue(string key,string value)
+        {
+            if (string.IsNullOrEmpty(value)) return;
+            if (mStringBuilder == null) mStringBuilder = new StringBuilder();
+            mStringBuilder.Append(key).Append(" = ").AppendLine(value);
+        }
+
         private void SetValue(object obj, PropertyInfo propertyInfo,  string name,string value)
         {
             object objValue;
@@ -127,7 +135,21 @@ namespace NetFileFormat.Extend.FileFormat
 
         public override void SaveObjectValue(string absPath, Type type, TypeCode typeCode, object value)
         {
-           
+            List<PropertyInfo> propertyInfos = new List<PropertyInfo>(value.GetType().GetProperties());
+
+            Dictionary<string, SerializedFile> serializedFileDic = new Dictionary<string, SerializedFile>();
+
+            foreach (var item in propertyInfos)
+            {
+                SerializedFile serializedFile = GetSerializedFile(item);
+                AddValue(serializedFile.Name, item.GetValue(value)?.ToString());
+            }
+
+            if (mStringBuilder != null && mStringBuilder.Length > 0)
+            {
+                File.WriteAllText(absPath, mStringBuilder.ToString());
+                mStringBuilder.Clear();
+            }
         }
 
         public override string GetFilePath(string[] files ,string fileName, object extendObj)
