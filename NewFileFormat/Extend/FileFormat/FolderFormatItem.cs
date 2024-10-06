@@ -9,9 +9,9 @@ namespace NetFileFormat.Extend.FileFormat
 {
     public class FolderFormatItem : BaseFileFormatItem
     {
-        public override string GetFilePath(string[] files,string[] folders, string fileName, object extendObj)
+        public override string GetFilePath(string[] files, string fileName, object extendObj)
         {
-            string filePath = folders.Select(path => path)
+            string filePath = files.Select(path => path)
               .Where(path =>
               {
                   if (!string.IsNullOrEmpty(fileName))
@@ -46,7 +46,6 @@ namespace NetFileFormat.Extend.FileFormat
             {
                 case TypeCode.Boolean:
                  return   Boolean.Parse(value);
-                    break;
                 case TypeCode.Int16:
                     return Int16.Parse(value);
                 case TypeCode.UInt16:

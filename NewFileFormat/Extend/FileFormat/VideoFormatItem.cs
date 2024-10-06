@@ -8,7 +8,7 @@ namespace NetFileFormat.Extend.FileFormat
 {
     public class VideoFormatItem : BaseLocalFileFormatItem
     {
-        public override string GetFilePath(string[] files, string[] folder, string fileName, object extendObj)
+        public override string GetFilePath(string[] files,  string fileName, object extendObj)
         {
             return GetSelectFilePath(files, fileName, "mp4");
         }

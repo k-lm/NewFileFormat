@@ -14,14 +14,27 @@ namespace NetFileFormat.FAnnotation
             Name = name;
             this.ContentType = contentType;
             this.FileType = fileType;
+            ObjFileType = ObjectFileType.File;
+            ChildFileType = ObjectFileType.File;
         }
 
-        public SerializedFile(string name,string fileType, FileContentType contentType, object extendObj)
+        public SerializedFile(string name, string fileType, FileContentType contentType, ObjectFileType objectFile,ObjectFileType childFileType)
         {
             Name = name;
             FileType = fileType;
             ContentType = contentType;
+            ObjFileType= objectFile;
+           ChildFileType = childFileType;
+        }
+
+        public SerializedFile(string name,string fileType, FileContentType contentType, ObjectFileType objectFile, ObjectFileType childFileType, object extendObj)
+        {
+            Name = name;
+            FileType = fileType;
+            ContentType = contentType;
+            ObjFileType = objectFile;
             ExtendObj = extendObj;
+            ChildFileType = childFileType;
         }
         /// <summary>
         /// 文件或文件夹 名称(包括扩展名)
@@ -36,5 +49,9 @@ namespace NetFileFormat.FAnnotation
         public FileContentType ContentType { get; set; } = FileContentType.Path;
 
         public object ExtendObj { get; set; }
+
+        public ObjectFileType ObjFileType { get; set; }
+
+        public ObjectFileType ChildFileType { get; set; }
     }
 }

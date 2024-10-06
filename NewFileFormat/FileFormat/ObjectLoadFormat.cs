@@ -120,7 +120,12 @@ namespace NetFileFormat.FileFormat
                         SetTargetObjectValue(obj, objectInfo, fileFormat);
                         continue;
                     }
-                    objectInfo.AbsPath = fileFormat.GetFilePath(filePaths,folderPaths, objectInfo.Name, objectInfo.SerializedFile.ExtendObj);
+
+
+                    objectInfo.AbsPath = fileFormat.GetFilePath(
+                        serializedFile.ObjFileType == ObjectFileType.File ? filePaths:folderPaths, 
+                        objectInfo.Name,
+                        objectInfo.SerializedFile.ExtendObj);
                 }
 
                 if (string.IsNullOrEmpty(objectInfo.AbsPath)) continue;
@@ -183,8 +188,9 @@ namespace NetFileFormat.FileFormat
             {
                 case TypeCode.Object:
                     if (!Directory.Exists(parentPath)) break;
-                    // 查询目录
-                    childPaths = Directory.GetDirectories(parentPath);
+                    // 查询文件
+
+                    childPaths =targetInfo.SerializedFile.ChildFileType == ObjectFileType.File ? Directory.GetFiles(parentPath) : Directory.GetDirectories(parentPath);
 
                     foreach (var chilPath in childPaths)
                     {

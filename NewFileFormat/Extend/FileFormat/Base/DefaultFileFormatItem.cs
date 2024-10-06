@@ -8,7 +8,7 @@ namespace NewFileFormat.Extend.FileFormat.Base
 {
     public abstract class DefaultFileFormatItem : BaseFileFormatItem
     {
-        public override string GetFilePath(string[] files, string[] folders, string fileName, object extendObj)
+        public override string GetFilePath(string[] files,  string fileName, object extendObj)
         {
             string filePath = files.Select(path => path)
               .Where(path =>

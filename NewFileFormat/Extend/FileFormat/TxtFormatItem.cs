@@ -9,7 +9,7 @@ namespace NetFileFormat.Extend.FileFormat
 {
     public class TxtFormatItem : BaseFileFormatItem
     {
-        public override string GetFilePath(string[] files, string[] folders, string fileName, object extendObj)
+        public override string GetFilePath(string[] files, string fileName, object extendObj)
         {
             return GetSelectFilePath(files, fileName, "txt");
         }
@@ -37,7 +37,6 @@ namespace NetFileFormat.Extend.FileFormat
             {
                 case TypeCode.Boolean:
                     return Boolean.Parse(value);
-                    break;
                 case TypeCode.Int16:
                     return Int16.Parse(value);
                 case TypeCode.UInt16:

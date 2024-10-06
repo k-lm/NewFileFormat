@@ -8,7 +8,7 @@ namespace NetFileFormat.Extend.FileFormat
 {
     public class ImageFormatItem : BaseLocalFileFormatItem
     {
-        public override string GetFilePath(string[] files, string[] folders, string fileName, object extendObj)
+        public override string GetFilePath(string[] files,  string fileName, object extendObj)
         {
             return GetSelectFilePath(files, fileName, "png", "jpg", "jpeg");
         }

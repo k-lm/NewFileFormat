@@ -12,7 +12,7 @@ namespace NetFileFormat.Extend.FileFormat.Base
 {
     public abstract class BaseFileFormatItem : IFileFormatItem
     {
-        public abstract string GetFilePath(string[] files, string[] folders,string fileName, object extendObj);
+        public abstract string GetFilePath(string[] files, string fileName, object extendObj);
         public abstract string GetFilePath(string filePath, string fileName, object extendObj);
 
         public abstract string GetSaveFileAbsPath(string folder, string name, object value);

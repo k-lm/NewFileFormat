@@ -61,6 +61,7 @@
     <Compile Include="FileFormat\ObjectSaveFormat.cs" />
     <Compile Include="FileFormat\ObjectLoadFormat.cs" />
     <Compile Include="FormatModel\Base\IFileFormatItem.cs" />
+    <Compile Include="FType\ObjectFileType.cs" />
     <Compile Include="FType\ObjectType.cs" />
     <Compile Include="FileFormat\ObjetInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

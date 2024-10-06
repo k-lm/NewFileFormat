@@ -40,7 +40,7 @@ namespace NetFileFormat.FormatModel.Base
         /// <param name="fileName">文件名</param>
         /// <param name="extendObj">扩展信息</param>
         /// <returns></returns>
-        string GetFilePath(string[] files,string[] folders, string fileName, object extendObj);
+        string GetFilePath(string[] files, string fileName, object extendObj);
         /// <summary>
         /// 对比文件
         /// </summary>
